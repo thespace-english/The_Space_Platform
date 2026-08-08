@@ -320,6 +320,46 @@ function renderAssignments(assignments) {
         `;
 
         container.appendChild(card);
+
+        const openButton =
+    card.querySelector(
+        '.assignment-open'
+    );
+
+const firstTask =
+    assignment.tasks &&
+    assignment.tasks.length
+        ? assignment.tasks[0]
+        : null;
+
+const contentRef =
+    firstTask &&
+    firstTask.content_ref
+        ? firstTask.content_ref
+        : '';
+
+const isRealUrl =
+    contentRef.startsWith('https://') ||
+    contentRef.startsWith('http://');
+
+if (isRealUrl) {
+
+    openButton.addEventListener(
+        'click',
+        () => {
+            window.location.href =
+                contentRef;
+        }
+    );
+
+} else {
+
+    openButton.disabled = true;
+
+    openButton.title =
+        'Task is not connected yet';
+}
+
     });
 }
 
