@@ -978,12 +978,18 @@ taskBank.addEventListener(
                                     bankTaskId
                             );
 
-                    const completed =
-                        previousWorks.some(
-                            item =>
-                                item.status ===
-                                "COMPLETED"
-                        );
+                    const completedWorks =
+    previousWorks.filter(
+        item =>
+            item.status ===
+            "COMPLETED"
+    );
+
+const completed =
+    completedWorks.length > 0;
+
+const completedCount =
+    completedWorks.length;
 
                     const alreadyAssigned =
                         previousWorks.some(
@@ -1004,14 +1010,15 @@ taskBank.addEventListener(
                     let historyText =
     "Not done before";
 
-if (alreadyAssigned) {
+if (alreadyAssigned && completed) {
+    historyText =
+        `Already assigned · Completed before: ${completedCount}`;
+} else if (alreadyAssigned) {
     historyText =
         "Already assigned";
-} else if (
-    completed
-) {
+} else if (completed) {
     historyText =
-        "Completed before";
+        `Completed before: ${completedCount}`;
 }
 
                     return `
