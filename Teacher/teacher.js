@@ -1073,6 +1073,35 @@ if (alreadyAssigned) {
             </div>
         `;
 
+/* -----------------------------------------
+   HIDE ASSIGN CONTROLS IF NOBODY IS AVAILABLE
+----------------------------------------- */
+
+const availableCheckbox =
+    chooser.querySelector(
+        ".student-choice-checkbox:not(:disabled)"
+    );
+
+if (!availableCheckbox) {
+
+    const selectAllButton =
+        chooser.querySelector(
+            ".student-select-all"
+        );
+
+    const assignSelectedButton =
+        chooser.querySelector(
+            ".student-assign-confirm"
+        );
+
+    if (selectAllButton) {
+        selectAllButton.remove();
+    }
+
+    if (assignSelectedButton) {
+        assignSelectedButton.remove();
+    }
+}
 
         row.appendChild(
             chooser
