@@ -1077,12 +1077,58 @@ if (alreadyAssigned) {
    HIDE ASSIGN CONTROLS IF NOBODY IS AVAILABLE
 ----------------------------------------- */
 
-const availableCheckbox =
-    chooser.querySelector(
-        ".student-choice-checkbox:not(:disabled)"
+chooser.innerHTML = `
+    <div class="student-chooser-header">
+
+        <div class="student-chooser-title">
+            Choose students
+        </div>
+
+        <button
+            class="student-select-all"
+            type="button"
+        >
+            Select all
+        </button>
+
+    </div>
+
+    <div class="student-choice-list">
+        ${studentsHtml}
+    </div>
+
+    <div class="student-chooser-actions">
+
+        <button
+            class="student-assign-confirm"
+            type="button"
+            data-bank-task-id="${bankTaskId}"
+            data-skill="${skillCode}"
+        >
+            Assign selected
+        </button>
+
+    </div>
+`;
+
+
+/* -----------------------------------------
+   HIDE ASSIGN CONTROLS IF NOBODY IS AVAILABLE
+----------------------------------------- */
+
+const chooserCheckboxes =
+    chooser.querySelectorAll(
+        ".student-choice-checkbox"
     );
 
-if (!availableCheckbox) {
+const hasAvailableStudents =
+    Array.from(chooserCheckboxes)
+        .some(
+            checkbox =>
+                !checkbox.disabled
+        );
+
+if (!hasAvailableStudents) {
 
     const selectAllButton =
         chooser.querySelector(
@@ -1103,14 +1149,24 @@ if (!availableCheckbox) {
     }
 }
 
-        row.appendChild(
-            chooser
-        );
 
-        button.textContent =
-            "Close";
-    }
+/* -----------------------------------------
+   ADD CHOOSER TO TASK
+----------------------------------------- */
+
+row.appendChild(
+    chooser
 );
+
+button.textContent =
+    "Close";
+}
+);
+
+
+/* =========================================================
+   SELECT ALL / CLEAR ALL
+========================================================= */
 
 taskBank.addEventListener(
     "click",
@@ -1136,8 +1192,12 @@ taskBank.addEventListener(
 
         const checkboxes =
             chooser.querySelectorAll(
-                ".student-choice-checkbox"
+                ".student-choice-checkbox:not(:disabled)"
             );
+
+        if (!checkboxes.length) {
+            return;
+        }
 
         const allChecked =
             Array.from(checkboxes)
@@ -1159,6 +1219,11 @@ taskBank.addEventListener(
                 : "Clear all";
     }
 );
+
+
+/* =========================================================
+   ASSIGN SELECTED
+========================================================= */
 
 taskBank.addEventListener(
     "click",
@@ -1185,7 +1250,7 @@ taskBank.addEventListener(
         const selectedStudentIds =
             Array.from(
                 chooser.querySelectorAll(
-                    ".student-choice-checkbox:checked"
+                    ".student-choice-checkbox:checked:not(:disabled)"
                 )
             ).map(
                 checkbox =>
@@ -1213,6 +1278,7 @@ taskBank.addEventListener(
 
 
         button.disabled = true;
+
         button.textContent =
             "Assigning...";
 
