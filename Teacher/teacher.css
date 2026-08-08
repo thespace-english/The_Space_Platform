@@ -1617,3 +1617,64 @@ select {
 
     cursor: default;
 }
+
+/* =========================================================
+   STUDENT CHOOSER — CHECKBOX
+========================================================= */
+
+.student-choice-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 18px;
+    height: 18px;
+
+    margin: 0;
+
+    border:
+        2px solid
+        rgba(122, 160, 149, 0.46);
+
+    border-radius: 5px;
+
+    background:
+        rgba(255, 255, 255, 0.82);
+
+    cursor: pointer;
+
+    position: relative;
+
+    flex: 0 0 auto;
+}
+
+.student-choice-checkbox:checked {
+    background: #173D43;
+    border-color: #173D43;
+}
+
+.student-choice-checkbox:checked::after {
+    content: "✓";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -54%);
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.student-choice-checkbox:disabled {
+    background:
+        rgba(122, 160, 149, 0.10);
+
+    border-color:
+        rgba(122, 160, 149, 0.22);
+
+    cursor: default;
+}
