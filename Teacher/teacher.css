@@ -1532,3 +1532,62 @@ select {
     font-size: 18px;
 }
 
+/* =========================================================
+   STUDENT CHOOSER — BUTTONS
+========================================================= */
+
+.student-select-all,
+.student-assign-confirm {
+    border: 0;
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        background 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.student-select-all {
+    padding: 7px 12px;
+    border-radius: 9px;
+
+    background:
+        rgba(122, 160, 149, 0.12);
+
+    color: #52756c;
+
+    font-size: 15px;
+}
+
+.student-select-all:hover {
+    background:
+        rgba(122, 160, 149, 0.20);
+
+    transform: translateY(-1px);
+}
+
+.student-assign-confirm {
+    padding: 9px 14px;
+    border-radius: 10px;
+
+    background: #173D43;
+    color: white;
+
+    font-size: 16px;
+}
+
+.student-assign-confirm:hover:not(:disabled) {
+    background: #214D54;
+    transform: translateY(-1px);
+}
+
+.student-assign-confirm:disabled {
+    background:
+        rgba(122, 160, 149, 0.18);
+
+    color:
+        rgba(23, 61, 67, 0.48);
+
+    cursor: default;
+}
