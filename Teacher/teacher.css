@@ -1156,7 +1156,7 @@ select {
     overflow: hidden;
 }
 
-.bank-task-row {
+..bank-task-row {
     display: grid;
 
     grid-template-columns:
@@ -1168,13 +1168,25 @@ select {
     gap: 16px;
 
     padding:
-        14px
-        14px;
+        18px
+        20px;
 
-    border-radius: 12px;
+    border:
+        1px solid
+        rgba(122, 160, 149, 0.18);
+
+    border-radius: 16px;
 
     background:
-        rgba(255, 255, 255, 0.32);
+        rgba(255, 255, 255, 0.68);
+
+    box-shadow:
+        0 8px 20px
+        rgba(23, 61, 67, 0.035);
+}
+
+.bank-task-row + .bank-task-row {
+    margin-top: 12px;
 }
 
 .bank-task-main {
