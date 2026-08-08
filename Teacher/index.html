@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Space — Teacher</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="teacher.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- Brand decor -->
+    <div class="space-decor space-decor-medium"></div>
+    <div class="space-decor space-decor-small"></div>
+
+    <img
+        src="logo.png"
+        alt="The Space"
+        class="platform-corner-logo"
+    >
+
+
+    <!-- Loading -->
+    <div
+        id="loading"
+        class="loading-screen"
+    >
+        <div class="loading-text">
+            The Space
+        </div>
+
+        <div class="loading-subtext">
+            Loading teacher dashboard...
+        </div>
+    </div>
+
+
+    <!-- Error -->
+    <div
+        id="error-screen"
+        class="error-screen hidden"
+    >
+        <h1>
+            We couldn't load the dashboard
+        </h1>
+
+        <p id="error-message"></p>
+    </div>
+
+
+    <!-- Teacher dashboard -->
+    <main
+        id="teacher-app"
+        class="teacher-app hidden"
+    >
+
+        <!-- =========================================
+             HEADER
+        ========================================== -->
+
+        <header class="teacher-header">
+
+            <div>
+
+                <div class="eyebrow">
+                    THE SPACE
+                </div>
+
+                <h1>
+                    Teacher Dashboard
+                </h1>
+
+                <div class="teacher-line">
+                    <span id="teacher-name">
+                        Elena
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="header-controls">
+
+                <div class="control-group">
+                    <label for="course-select">
+                        Course
+                    </label>
+
+                    <select id="course-select">
+                        <option value="course_ege">
+                            EGE
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="control-group">
+                    <label for="group-select">
+                        Group
+                    </label>
+
+                    <select id="group-select">
+                        <option value="">
+                            Loading groups...
+                        </option>
+                    </select>
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================================
+             OVERVIEW
+        ========================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <div class="section-label">
+                        OVERVIEW
+                    </div>
+
+                    <h2>
+                        Current status
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="overview-grid">
+
+                <div class="overview-card">
+                    <div
+                        id="overview-students"
+                        class="overview-number"
+                    >
+                        0
+                    </div>
+
+                    <div class="overview-label">
+                        Students
+                    </div>
+                </div>
+
+
+                <div class="overview-card">
+                    <div
+                        id="overview-working"
+                        class="overview-number"
+                    >
+                        0
+                    </div>
+
+                    <div class="overview-label">
+                        Working now
+                    </div>
+                </div>
+
+
+                <div class="overview-card">
+                    <div
+                        id="overview-check"
+                        class="overview-number"
+                    >
+                        0
+                    </div>
+
+                    <div class="overview-label">
+                        To check
+                    </div>
+                </div>
+
+
+                <div class="overview-card">
+                    <div
+                        id="overview-overdue"
+                        class="overview-number"
+                    >
+                        0
+                    </div>
+
+                    <div class="overview-label">
+                        Overdue
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             STUDENT PROGRESS
+        ========================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <div class="section-label">
+                        PROGRESS
+                    </div>
+
+                    <h2>
+                        Student progress
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div
+                id="progress-table"
+                class="progress-table"
+            >
+
+                <div class="empty-state">
+                    Student progress will appear here.
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             ASSIGNMENTS / LIVE STATUS
+        ========================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading assignments-heading">
+
+                <div>
+
+                    <div class="section-label">
+                        ASSIGNMENTS
+                    </div>
+
+                    <h2>
+                        All work
+                    </h2>
+
+                </div>
+
+
+                <div class="status-filters">
+
+                    <button
+                        class="filter-button active"
+                        data-status="ALL"
+                        type="button"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-status="NOT_ATTEMPTED"
+                        type="button"
+                    >
+                        Not started
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-status="IN_PROGRESS"
+                        type="button"
+                    >
+                        Working
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-status="SUBMITTED"
+                        type="button"
+                    >
+                        Submitted
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-status="AWAITING_REVIEW"
+                        type="button"
+                    >
+                        To check
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-status="COMPLETED"
+                        type="button"
+                    >
+                        Completed
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-status="OVERDUE"
+                        type="button"
+                    >
+                        Overdue
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="assignments-table"
+                class="assignments-table"
+            >
+
+                <div class="empty-state">
+                    Assignments will appear here.
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             TASK BANK
+        ========================================== -->
+
+        <section class="dashboard-section task-bank-section">
+
+            <div class="section-heading task-bank-heading">
+
+                <div>
+
+                    <div class="section-label">
+                        TASK BANK
+                    </div>
+
+                    <h2>
+                        Assign new tasks
+                    </h2>
+
+                </div>
+
+
+                <div class="assign-mode">
+
+                    <button
+                        id="assign-homework"
+                        class="mode-button active"
+                        type="button"
+                    >
+                        Homework
+                    </button>
+
+                    <button
+                        id="assign-classwork"
+                        class="mode-button"
+                        type="button"
+                    >
+                        Classwork
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- EGE sections -->
+            <div class="bank-tabs">
+
+                <button
+                    class="bank-tab active"
+                    data-section="LISTENING"
+                    type="button"
+                >
+                    Listening
+                </button>
+
+                <button
+                    class="bank-tab"
+                    data-section="READING"
+                    type="button"
+                >
+                    Reading
+                </button>
+
+                <button
+                    class="bank-tab"
+                    data-section="GRAMMAR"
+                    type="button"
+                >
+                    Grammar
+                </button>
+
+                <button
+                    class="bank-tab"
+                    data-section="WRITING"
+                    type="button"
+                >
+                    Writing
+                </button>
+
+                <button
+                    class="bank-tab"
+                    data-section="SPEAKING"
+                    type="button"
+                >
+                    Speaking
+                </button>
+
+            </div>
+
+
+            <!-- Skills inside selected section -->
+            <div
+                id="skill-tabs"
+                class="skill-tabs"
+            >
+            </div>
+
+
+            <!-- Bank tasks -->
+            <div
+                id="task-bank"
+                class="task-bank"
+            >
+
+                <div class="empty-state">
+                    Tasks from the bank will appear here.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="teacher.js"></script>
+
+</body>
+
+</html>

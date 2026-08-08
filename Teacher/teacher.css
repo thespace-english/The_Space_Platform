@@ -1,0 +1,1534 @@
+/* =========================================================
+   THE SPACE — TEACHER DASHBOARD
+   CLEAN FINAL CSS
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Nunito", sans-serif;
+    color: #173D43;
+
+    background:
+        radial-gradient(
+            circle at 3% 100%,
+            rgba(116, 218, 199, 0.30) 0%,
+            rgba(146, 226, 210, 0.22) 24%,
+            rgba(190, 239, 229, 0.13) 43%,
+            transparent 61%
+        ),
+        radial-gradient(
+            circle at 76% 8%,
+            rgba(178, 229, 219, 0.10) 0%,
+            transparent 44%
+        ),
+        linear-gradient(
+            135deg,
+            #FBFDFC 0%,
+            #F3FAF8 52%,
+            #EBF7F4 100%
+        );
+
+    background-attachment: fixed, fixed, fixed;
+    background-size: 100vw 100vh, 100vw 100vh, 100vw 100vh;
+    background-repeat: no-repeat;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   TOP ARC
+========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 900px;
+    height: 900px;
+
+    top: -680px;
+    right: -290px;
+
+    border-radius: 50%;
+
+    border:
+        28px solid
+        rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        inset 0 0 0 1px
+            rgba(255, 255, 255, 0.96),
+
+        0 0 0 1px
+            rgba(255, 255, 255, 0.42),
+
+        0 12px 34px
+            rgba(100, 160, 151, 0.06);
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* =========================================================
+   LARGE BOTTOM CIRCLE
+========================================================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 285px;
+    height: 285px;
+
+    left: -45px;
+    bottom: -175px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.17),
+            rgba(255, 255, 255, 0.04)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.76);
+
+    box-shadow:
+        inset 2px 2px 8px
+            rgba(255, 255, 255, 0.30),
+
+        inset -3px -3px 10px
+            rgba(82, 165, 154, 0.04);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* =========================================================
+   SMALL BOTTOM CIRCLES
+========================================================= */
+
+.space-decor {
+    position: fixed;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.22),
+            rgba(255, 255, 255, 0.05)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.76);
+
+    box-shadow:
+        inset 2px 2px 6px
+            rgba(255, 255, 255, 0.28);
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.space-decor-medium {
+    width: 105px;
+    height: 105px;
+
+    left: 35px;
+    bottom: 80px;
+}
+
+.space-decor-small {
+    width: 70px;
+    height: 70px;
+
+    left: 185px;
+    bottom: 18px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.platform-corner-logo {
+    position: fixed;
+
+    right: 18px;
+    bottom: 14px;
+
+    width: 170px;
+    height: auto;
+
+    z-index: 10;
+
+    object-fit: contain;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+.teacher-app {
+    width: min(1460px, calc(100% - 72px));
+
+    margin: 0 auto;
+
+    padding:
+        28px
+        0
+        90px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.teacher-header {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 28px;
+}
+
+.eyebrow,
+.section-label {
+    font-size: 18px;
+    font-weight: 900;
+
+    letter-spacing: 0.14em;
+
+    color: #7AA095;
+}
+
+.teacher-header h1 {
+    margin:
+        6px
+        0
+        4px;
+
+    font-size: clamp(34px, 4vw, 54px);
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -0.035em;
+}
+
+.teacher-line {
+    font-size: 15px;
+    font-weight: 700;
+
+    color:
+        rgba(23, 61, 67, 0.58);
+}
+
+
+/* =========================================================
+   HEADER CONTROLS
+========================================================= */
+
+.header-controls {
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 14px;
+}
+
+.control-group {
+    min-width: 190px;
+}
+
+.control-group label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 0.10em;
+
+    color:
+        rgba(23, 61, 67, 0.48);
+}
+
+select {
+    width: 100%;
+
+    padding:
+        11px
+        38px
+        11px
+        14px;
+
+    border:
+        1px solid
+        rgba(122, 160, 149, 0.24);
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    color: #173D43;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    outline: none;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.dashboard-section {
+    margin-bottom: 32px;
+}
+
+.section-heading {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    margin:
+        4px
+        0
+        0;
+
+    font-size: 24px;
+    line-height: 1.1;
+
+    font-weight: 900;
+
+    letter-spacing: -0.025em;
+}
+
+.progress-table,
+.assignments-table,
+.task-bank {
+    border:
+        1px solid
+        rgba(122, 160, 149, 0.18);
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.64);
+
+    box-shadow:
+        0 12px 30px
+        rgba(23, 61, 67, 0.035);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.empty-state {
+    padding: 28px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color:
+        rgba(23, 61, 67, 0.48);
+}
+
+
+/* =========================================================
+   OVERVIEW
+========================================================= */
+
+.overview-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+.overview-card {
+    min-height: 84px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding:
+        16px
+        20px;
+
+    border:
+        1px solid
+        rgba(122, 160, 149, 0.18);
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.70);
+
+    box-shadow:
+        0 12px 30px
+        rgba(23, 61, 67, 0.04);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.overview-number {
+    font-size: 29px;
+    line-height: 1;
+
+    font-weight: 900;
+}
+
+.overview-label {
+    margin-top: 5px;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    color:
+        rgba(23, 61, 67, 0.52);
+}
+
+
+/* =========================================================
+   STUDENT PROGRESS — EGE MATRIX
+========================================================= */
+
+.progress-table {
+    padding:
+        18px
+        20px
+        20px;
+
+    overflow-x: auto;
+}
+
+.skills-header,
+.skills-row {
+    display: grid;
+
+    grid-template-columns:
+        205px
+        repeat(15, minmax(66px, 1fr));
+
+    align-items: center;
+
+    column-gap: 9px;
+
+    min-width: 1260px;
+}
+
+.skills-header {
+    grid-template-rows:
+        auto
+        auto;
+
+    row-gap: 10px;
+
+    padding:
+        0
+        0
+        13px;
+}
+
+.skills-student-title {
+    grid-column: 1;
+    grid-row: 1 / 3;
+
+    align-self: end;
+
+    padding:
+        0
+        0
+        5px
+        4px;
+
+    font-size: 14px;
+    font-weight: 900;
+
+    letter-spacing: 0.08em;
+
+    color:
+        rgba(23, 61, 67, 0.50);
+}
+
+
+/* =========================================================
+   SKILL GROUPS
+========================================================= */
+
+.skill-group {
+    grid-row: 1;
+
+    padding:
+        10px
+        12px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.82);
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.70),
+            rgba(255, 255, 255, 0.34)
+        );
+
+    box-shadow:
+        inset 1px 1px 3px
+            rgba(255, 255, 255, 0.82),
+
+        0 5px 14px
+            rgba(76, 130, 121, 0.045);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    text-align: center;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    letter-spacing: 0.07em;
+
+    text-transform: uppercase;
+
+    color: #678F84;
+}
+
+.group-listening {
+    grid-column:
+        2 / span 3;
+}
+
+.group-reading {
+    grid-column:
+        5 / span 3;
+}
+
+.group-grammar {
+    grid-column:
+        8 / span 3;
+}
+
+.group-writing {
+    grid-column:
+        11 / span 2;
+}
+
+.group-speaking {
+    grid-column:
+        13 / span 4;
+}
+
+
+/* =========================================================
+   L1–S4 HEADERS
+========================================================= */
+
+.skill-head {
+    grid-row: 2;
+
+    padding-top: 2px;
+
+    text-align: center;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    letter-spacing: 0.06em;
+
+    color:
+        rgba(23, 61, 67, 0.60);
+}
+
+
+/* =========================================================
+   STUDENT ROW
+========================================================= */
+
+.skills-row {
+    min-height: 66px;
+
+    padding:
+        10px
+        0;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.32);
+}
+
+.skills-student {
+    padding-left: 4px;
+
+    font-size: 18px;
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+.skill-cell {
+    min-height: 44px;
+
+    padding: 7px;
+
+    border:
+        1px solid
+        rgba(122, 160, 149, 0.18);
+
+    border-radius: 11px;
+
+    background:
+        rgba(255, 255, 255, 0.62);
+
+    color: #173D43;
+
+    box-shadow:
+        inset 1px 1px 2px
+        rgba(255, 255, 255, 0.70);
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 16px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        transform 0.18s ease;
+}
+
+.skill-cell:hover:not(:disabled) {
+    transform: translateY(-1px);
+
+    background:
+        rgba(122, 160, 149, 0.15);
+}
+
+.skill-cell:not(.empty-skill) {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(214, 245, 238, 0.88),
+            rgba(255, 255, 255, 0.74)
+        );
+
+    border-color:
+        rgba(104, 167, 153, 0.28);
+
+    box-shadow:
+        inset 1px 1px 3px
+            rgba(255, 255, 255, 0.84),
+
+        0 4px 10px
+            rgba(79, 139, 128, 0.06);
+}
+
+.empty-skill {
+    color:
+        rgba(23, 61, 67, 0.28);
+
+    cursor: default;
+}
+
+/* =========================================================
+   SKILL HISTORY PANEL
+========================================================= */
+
+.skill-history-panel {
+    margin-top: 10px;
+    padding: 10px;
+
+    border:
+        1px solid
+        rgba(122, 160, 149, 0.18);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.68),
+            rgba(255, 255, 255, 0.42)
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(23, 61, 67, 0.04);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.skill-history-item {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        90px
+        110px;
+
+    align-items: center;
+
+    gap: 18px;
+
+    min-height: 58px;
+
+    padding:
+        10px
+        14px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255, 255, 255, 0.42);
+}
+
+.skill-history-item + .skill-history-item {
+    margin-top: 8px;
+}
+
+.history-task-main {
+    min-width: 0;
+}
+
+.history-task-title {
+    font-size: 18px;
+    font-weight: 900;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.history-task-meta {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 4px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color:
+        rgba(23, 61, 67, 0.52);
+}
+
+.history-task-result {
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.history-task-attempts {
+    text-align: right;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    color:
+        rgba(23, 61, 67, 0.58);
+}
+
+.skill-history-empty {
+    padding: 14px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color:
+        rgba(23, 61, 67, 0.48);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .skill-history-item {
+        grid-template-columns:
+            1fr
+            auto;
+
+        gap:
+            6px
+            12px;
+    }
+
+    .history-task-title {
+        grid-column:
+            1 / -1;
+
+        white-space: normal;
+    }
+
+    .history-task-result {
+        text-align: left;
+    }
+
+    .history-task-attempts {
+        text-align: right;
+    }
+}
+
+/* =========================================================
+   VISUAL DIVIDERS BETWEEN EXAM SECTIONS
+========================================================= */
+
+.skills-row > :nth-child(5),
+.skills-row > :nth-child(8),
+.skills-row > :nth-child(11),
+.skills-row > :nth-child(13) {
+    border-left-color:
+        rgba(95, 146, 135, 0.34);
+
+    box-shadow:
+        -8px 0 0 -7px
+            rgba(95, 146, 135, 0.18),
+
+        inset 1px 1px 2px
+            rgba(255, 255, 255, 0.70);
+}
+
+
+/* =========================================================
+   ALL WORK — FILTERS
+========================================================= */
+
+.assignments-heading {
+    display: grid;
+
+    grid-template-columns:
+        auto
+        minmax(0, 1fr);
+
+    align-items: end;
+
+    gap: 24px;
+}
+
+.status-filters {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+}
+
+.filter-button,
+.mode-button,
+.bank-tab,
+.skill-tab {
+    border: 0;
+
+    font-family: "Nunito", sans-serif;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.filter-button {
+    padding:
+        10px
+        15px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.56);
+
+    color:
+        rgba(23, 61, 67, 0.58);
+
+    font-size: 18px;
+}
+
+.filter-button:hover {
+    transform: translateY(-1px);
+}
+
+.filter-button.active {
+    background: #173D43;
+
+    color: white;
+}
+
+
+/* =========================================================
+   ALL WORK — TABLE
+========================================================= */
+
+.assignments-table {
+    padding: 0;
+
+    overflow-x: auto;
+}
+
+.assignment-row {
+    display: grid !important;
+
+    grid-template-columns:
+        190px
+        58px
+        minmax(330px, 1fr)
+        115px
+        125px
+        85px
+        100px;
+
+    align-items: center;
+
+    gap: 16px;
+
+    min-width: 1120px;
+    min-height: 74px;
+
+    padding:
+        16px
+        20px;
+
+    border-bottom:
+        1px solid
+        rgba(122, 160, 149, 0.12);
+
+    font-size: 18px;
+}
+
+.assignment-row:last-child {
+    border-bottom: 0;
+}
+
+.assignment-student {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.assignment-task-name {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.assignment-task-name {
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+.assignment-skill {
+    font-size: 18px;
+    font-weight: 900;
+
+    color: #6F948A;
+}
+
+.assignment-type,
+.assignment-status,
+.assignment-score,
+.assignment-attempts {
+    white-space: nowrap;
+    font-size: 18px;
+}
+
+.assignment-type,
+.assignment-status,
+.assignment-attempts {
+    color:
+        rgba(23, 61, 67, 0.58);
+
+    font-weight: 700;
+}
+
+.assignment-score {
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   TASK BANK
+========================================================= */
+
+.task-bank-section {
+    margin-bottom: 10px;
+}
+
+.task-bank-heading {
+    align-items: center;
+}
+
+.assign-mode {
+    display: flex;
+
+    gap: 6px;
+
+    padding: 4px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.56);
+
+    border:
+        1px solid
+        rgba(122, 160, 149, 0.16);
+}
+
+.mode-button {
+    padding:
+        9px
+        15px;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color:
+        rgba(23, 61, 67, 0.58);
+
+    font-size: 18px;
+}
+
+.mode-button.active {
+    background: #173D43;
+
+    color: white;
+}
+
+
+/* =========================================================
+   TASK BANK — SECTION TABS
+========================================================= */
+
+.bank-tabs {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+}
+
+.bank-tab {
+    padding:
+        9px
+        14px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.56);
+
+    color:
+        rgba(23, 61, 67, 0.58);
+
+    font-size: 18px;
+}
+
+.bank-tab.active {
+    background:
+        rgba(122, 160, 149, 0.18);
+
+    color: #173D43;
+}
+
+
+/* =========================================================
+   TASK BANK — SKILL TABS
+========================================================= */
+
+.skill-tabs {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 14px;
+}
+
+.skill-tab {
+    padding:
+        7px
+        11px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.48);
+
+    color:
+        rgba(23, 61, 67, 0.52);
+
+    font-size: 18px;
+}
+
+.skill-tab.active {
+    background: #173D43;
+
+    color: white;
+}
+
+
+/* =========================================================
+   TASK BANK — TASK ROW
+========================================================= */
+
+.task-bank {
+    padding:
+        10px
+        12px;
+
+    overflow: hidden;
+}
+
+.bank-task-row {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding:
+        14px
+        14px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.32);
+}
+
+.bank-task-main {
+    min-width: 0;
+}
+
+.bank-task-code {
+    margin-bottom: 4px;
+
+    font-size: 18px;
+    font-weight: 900;
+
+    letter-spacing: 0.10em;
+
+    color: #7AA095;
+}
+
+.bank-task-title {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.bank-task-history {
+    margin-top: 6px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color:
+        rgba(23, 61, 67, 0.52);
+}
+
+.bank-assign-button {
+    min-width: 84px;
+
+    padding:
+        10px
+        16px;
+
+    border: 0;
+
+    border-radius: 11px;
+
+    background: #173D43;
+
+    color: white;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 18px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease;
+}
+
+.bank-assign-button:hover {
+    transform: translateY(-1px);
+
+    background: #214D54;
+}
+
+
+/* =========================================================
+   LOADING / ERROR
+========================================================= */
+
+.loading-screen,
+.error-screen {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.loading-text {
+    font-size: 30px;
+
+    font-weight: 900;
+}
+
+.loading-subtext {
+    margin-top: 6px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color:
+        rgba(23, 61, 67, 0.50);
+}
+
+.error-screen h1 {
+    margin: 0;
+
+    font-size: 26px;
+
+    font-weight: 900;
+}
+
+.error-screen p {
+    color:
+        rgba(23, 61, 67, 0.54);
+}
+
+
+/* =========================================================
+   MEDIUM SCREENS
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .teacher-app {
+        width:
+            calc(100% - 40px);
+    }
+
+    .teacher-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .header-controls {
+        width: 100%;
+    }
+
+    .control-group {
+        flex: 1;
+
+        min-width: 0;
+    }
+
+    .overview-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .section-heading,
+    .task-bank-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .assignments-heading {
+        grid-template-columns: 1fr;
+
+        align-items: flex-start;
+    }
+
+    .status-filters {
+        justify-content: flex-start;
+    }
+
+    .assignment-attempts {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body::before {
+        width: 520px;
+        height: 520px;
+
+        top: -405px;
+        right: -220px;
+
+        border-width: 20px;
+    }
+
+    body::after {
+        width: 210px;
+        height: 210px;
+
+        left: -50px;
+        bottom: -105px;
+    }
+
+    .space-decor-medium {
+        width: 76px;
+        height: 76px;
+
+        left: 25px;
+        bottom: 85px;
+    }
+
+    .space-decor-small {
+        width: 52px;
+        height: 52px;
+
+        left: 145px;
+        bottom: 18px;
+    }
+
+    .platform-corner-logo {
+        right: 15px;
+        bottom: 15px;
+
+        width: 125px;
+    }
+
+    .teacher-app {
+        width:
+            calc(100% - 28px);
+
+        padding:
+            34px
+            0
+            100px;
+    }
+
+    .header-controls {
+        flex-direction: column;
+    }
+
+    .control-group {
+        width: 100%;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+
+    /* PROGRESS */
+
+    .progress-table {
+        padding: 12px;
+    }
+
+    .skills-header,
+    .skills-row {
+        grid-template-columns:
+            160px
+            repeat(15, 60px);
+
+        min-width: 1080px;
+    }
+
+    .skill-group {
+        padding: 8px;
+
+        font-size: 11px;
+    }
+
+    .skill-head {
+        font-size: 11px;
+    }
+
+    .skills-student {
+        font-size: 13px;
+    }
+
+    .skill-cell {
+        min-height: 38px;
+
+        font-size: 12px;
+    }
+
+
+    /* ALL WORK */
+
+    .assignments-table {
+        padding: 7px;
+    }
+
+    .assignment-row {
+        min-width: 0;
+
+        grid-template-columns:
+            1fr
+            auto;
+
+        gap:
+            5px
+            12px;
+
+        padding: 12px;
+
+        border-radius: 12px;
+
+        border-bottom: 0;
+
+        background:
+            rgba(255, 255, 255, 0.30);
+    }
+
+    .assignment-student {
+        font-size: 14px;
+    }
+
+    .assignment-skill {
+        text-align: right;
+    }
+
+    .assignment-task-name {
+        grid-column:
+            1 / -1;
+    }
+
+    .assignment-type {
+        display: none;
+    }
+
+    .assignment-status {
+        grid-column: 1;
+    }
+
+    .assignment-score {
+        grid-column: 2;
+
+        text-align: right;
+    }
+
+    .assignment-attempts {
+        display: none;
+    }
+}
+
+/* =========================================================
+   MINIMUM FONT SIZE — TASK BANK
+========================================================= */
+
+.bank-tab,
+.skill-tab,
+.bank-task-code,
+.bank-task-title,
+.bank-task-history,
+.bank-assign-button,
+.empty-state {
+    font-size: 18px;
+}
+

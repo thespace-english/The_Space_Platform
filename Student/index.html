@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Space — Student</title>
+
+    <link rel="stylesheet" href="student.css">
+</head>
+
+<body>
+    <div class="space-decor space-decor-medium"></div>
+<div class="space-decor space-decor-small"></div>
+
+<img
+    src="logo.png"
+    alt="The Space"
+    class="platform-corner-logo"
+>
+
+    <!-- Loading -->
+    <div id="loading" class="loading-screen">
+        <div class="loading-text">The Space</div>
+        <div class="loading-subtext">Loading your learning path...</div>
+    </div>
+
+
+    <!-- Error -->
+    <div id="error-screen" class="error-screen hidden">
+        <h1>We couldn't load your data</h1>
+        <p id="error-message"></p>
+    </div>
+
+
+    <!-- Student dashboard -->
+    <main id="student-app" class="student-app hidden">
+
+        <header class="student-header">
+
+            <div class="student-info">
+                <div class="eyebrow">THE SPACE</div>
+
+                <h1>
+                    Welcome, <span id="student-name"></span>!
+                </h1>
+
+                <div class="course-line">
+                    <span id="course-name"></span>
+                    <span class="separator">•</span>
+                    <span id="track-name"></span>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- Overall progress -->
+        <section class="progress-section">
+
+            <div class="section-heading">
+                <div>
+                    <div class="section-label">YOUR LEARNING PATH</div>
+                    <h2>Progress</h2>
+                </div>
+
+                <div class="progress-number">
+                    <span id="completed-count">0</span>
+                    <span class="progress-divider">/</span>
+                    <span id="total-count">0</span>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+
+        </section>
+
+        <!-- My Tasks -->
+<section class="tasks-section">
+
+    <div class="section-heading">
+        <div>
+            <div class="section-label">MY TASKS</div>
+            <h2>Current assignments</h2>
+        </div>
+    </div>
+
+    <div id="assignments-list" class="assignments-list"></div>
+
+</section>
+
+        <!-- Checkpoints -->
+        <!-- Mock Exams -->
+<section class="checkpoints-section">
+
+    <div class="section-heading">
+        <div>
+            <div class="section-label">EGE</div>
+            <h2>Mock Exams</h2>
+        </div>
+    </div>
+
+    <!-- Selected mock exam -->
+    <div id="active-checkpoint"></div>
+
+    <!-- Carousel navigation -->
+    <div class="mock-navigation">
+        <div
+            id="checkpoint-dots"
+            class="checkpoint-dots"
+            aria-label="Mock exam navigation"
+        ></div>
+    </div>
+
+    
+
+</section>
+
+    </main>
+
+
+    <script src="student.js"></script>
+
+</body>
+</html>
