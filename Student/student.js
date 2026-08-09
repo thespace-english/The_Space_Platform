@@ -343,12 +343,20 @@ const contentRef =
 
 if (contentRef) {
 
-    const taskUrl =
+    let taskUrl =
         contentRef.startsWith('https://') ||
         contentRef.startsWith('http://')
             ? contentRef
             : EGE_CONTENT_URL +
               encodeURIComponent(contentRef);
+
+    const studentLogin =
+        getLoginFromUrl();
+
+    taskUrl +=
+        (taskUrl.includes('?') ? '&' : '?') +
+        'student=' +
+        encodeURIComponent(studentLogin);
 
     openButton.addEventListener(
         'click',
