@@ -1,5 +1,8 @@
 const API_URL = 'https://functions.yandexcloud.net/d4e8345m7p4h6fmheoae';
 
+const EGE_CONTENT_URL =
+    'https://thespace-english.github.io/EGE/';
+
 let checkpoints = [];
 let activeCheckpointIndex = 0;
 
@@ -338,17 +341,20 @@ const contentRef =
         ? firstTask.content_ref
         : '';
 
-const isRealUrl =
-    contentRef.startsWith('https://') ||
-    contentRef.startsWith('http://');
+if (contentRef) {
 
-if (isRealUrl) {
+    const taskUrl =
+        contentRef.startsWith('https://') ||
+        contentRef.startsWith('http://')
+            ? contentRef
+            : EGE_CONTENT_URL +
+              encodeURIComponent(contentRef);
 
     openButton.addEventListener(
         'click',
         () => {
             window.location.href =
-                contentRef;
+                taskUrl;
         }
     );
 
