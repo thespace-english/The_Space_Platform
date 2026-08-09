@@ -356,7 +356,15 @@ if (contentRef) {
     taskUrl +=
         (taskUrl.includes('?') ? '&' : '?') +
         'student=' +
-        encodeURIComponent(studentLogin);
+        encodeURIComponent(studentLogin) +
+        '&assignment_id=' +
+        encodeURIComponent(
+            assignment.assignment_id
+        ) +
+        '&task_id=' +
+        encodeURIComponent(
+            firstTask.task_id
+        );
 
     openButton.addEventListener(
         'click',
